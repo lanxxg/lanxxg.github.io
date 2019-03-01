@@ -37,13 +37,13 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
-            <p>
-              Written by <strong>{author}</strong> who lives and works in San
-              Francisco building useful things.
+            <p style={{ maxWidth: 210 }}>
+              Personal blog by
               {` `}
               <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a>
+                {author}
+              </a>.
+              千万不要听他胡说八道
             </p>
           </div>
         )
