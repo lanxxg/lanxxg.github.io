@@ -1,0 +1,1 @@
+{"data":{"site":{"siteMetadata":{"title":"彼岸花开开彼岸"}},"allMarkdownRemark":{"edges":[{"node":{"excerpt":"前些天使用 Gatsby 和其官方提供的模板 Gatsby blog starter 搭建了此网站。希望自己可以在这里写点什么，也许可以坚持很长一段时间，也许会不了了之，不过这一刻我的确想做这件事（手动认真脸）。  ","fields":{"slug":"/hello-world/"},"frontmatter":{"date":"March 11, 2019","title":"Hello World","description":"起点，或者终点"}}}]}},"pageContext":{}}
