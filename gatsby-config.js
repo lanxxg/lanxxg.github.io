@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `彼岸花开开彼岸`,
     author: `lanxxg`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Personal blog by lanxxg.`,
     siteUrl: `https://lanxxg.github.io/`,
     social: {
       twitter: `ohnoicey`,
