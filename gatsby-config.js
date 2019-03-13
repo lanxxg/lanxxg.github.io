@@ -3,7 +3,7 @@ module.exports = {
     title: `彼岸花开开彼岸`,
     author: `lanxxg`,
     description: `Personal blog by lanxxg.`,
-    siteUrl: `https://lanxxg.github.io/`,
+    siteUrl: `https://lanxxg.github.io`,
     social: {
       twitter: `ohnoicey`,
     },
