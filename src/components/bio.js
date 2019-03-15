@@ -38,11 +38,10 @@ function Bio() {
               }}
             />
             <p style={{ maxWidth: 210 }}>
-              Personal blog by
-              {` `}
+              Personal blog by{` `}
               <a href={`https://twitter.com/${social.twitter}`}>
                 {author}
-              </a>.
+              </a>.{` `}
               千万不要听他胡说八道
             </p>
           </div>

@@ -1,3 +1,7 @@
+
+import 'prismjs/themes/prism-solarizedlight.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import './global.css'
 import Typography from "typography"
 import Wordpress2016 from "typography-theme-wordpress-2016"
 
