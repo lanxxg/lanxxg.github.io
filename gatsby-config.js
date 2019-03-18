@@ -61,7 +61,7 @@ module.exports = {
         short_name: `Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#13c2c2`,
         display: `minimal-ui`,
         icon: `content/assets/icon.png`,
       },
