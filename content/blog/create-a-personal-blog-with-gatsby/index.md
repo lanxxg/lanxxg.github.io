@@ -4,7 +4,7 @@ date: "2019-04-11"
 description: Steps to building a static blog.
 ---
 
-[Gatsby](https://www.gatsbyjs.org/)是基于React的框架，可以帮助我们构建超快的网站与应用。使用[plugins](https://www.gatsbyjs.org/docs/plugins)可以很方便的实现很多功能，当然官方和社区也提供了很多预设置好的用例模板[starters](https://www.gatsbyjs.org/docs/starters/)，可以快速的构建应用。
+[Gatsby](https://www.gatsbyjs.org/)是基于React的框架，可以帮助我们构建超快的网站与应用。使用[plugins](https://www.gatsbyjs.org/docs/plugins)可以很方便的实现很多功能，当然官方和社区也提供了很多预设置好的用例模板[starters](https://www.gatsbyjs.org/docs/starters/)，快速的构建应用。
 
 > 用[Gatsby blog starter](https://github.com/gatsbyjs/gatsby-starter-blog)模板开始你的博客
 
@@ -15,6 +15,7 @@ description: Steps to building a static blog.
   // or
   npm install -g gatsby-cli
 ```
+
 ## 创建项目
 安装完之后，通过`gatsby new [rootPath] [starter]`命令新建`gatsby`项目
 ```
@@ -35,11 +36,15 @@ description: Steps to building a static blog.
   gatsby build
 ```
 Gatsby会打包所有资源，包括静态HTML、JavaScript等
+
 ## 部署
 如何部署到[GitHub Pages](https://pages.github.com/)？可以通过[gh-pages](https://github.com/tschaub/gh-pages)依赖包把项目发布到`Github Pages`，运行下面命令安装：
 ```
 npm install gh-pages --save-dev
 ```
+
+**GitHub Pages有两种类型，一种Project Pages，另一种是User and Organization Pages，它们几乎相同，但又有一些区别。**
+
 ### GitHub Repository page
 在`package.json`文件中添加部署脚本
 ```
@@ -59,7 +64,9 @@ npm install gh-pages --save-dev
 然后运行`npm run deploy`，在浏览器打开`http://username.github.io/repo-name`查看
 
 ### GitHub Organization or User page
-仓库以`username.github.io`方式命名
+仓库以`username.github.io`方式命名，因为`Organization or User page`需要push到master分支，master分支里是构建之后的资源文件，我们需要在本地创建一个`develop`分支工作，这个分支名字可以随便起。  
+
+在`package.json`文件中添加以下脚本
 ```
   {
     "scripts": {
@@ -68,6 +75,6 @@ npm install gh-pages --save-dev
     }
   }
 ```
-然后运行`npm run deploy`，在浏览器打开`http://username.github.io`查看
+然后运行`npm run deploy`，在浏览器打开`http://username.github.io`查看。
 
 胡说八道~
