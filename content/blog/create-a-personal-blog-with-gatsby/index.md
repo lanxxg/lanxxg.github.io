@@ -61,10 +61,10 @@ npm install gh-pages --save-dev
     pathPrefix: "/your-repo-name",
   }
 ```
-然后运行`npm run deploy`，在浏览器打开`http://username.github.io/repo-name`查看
+然后运行`npm run deploy`，确保仓库设置中的`GitHub Pages`项选择的是`gh-pages`分支，在浏览器打开`http://username.github.io/repo-name`查看。
 
 ### GitHub Organization or User page
-仓库以`username.github.io`方式命名，因为`Organization or User page`需要push到master分支，master分支里是构建之后的资源文件，我们需要在本地创建一个`develop`分支工作，这个分支名字可以随便起。  
+仓库以`username.github.io`方式命名，因为`Organization or User page`需要push到master分支，master分支将是构建之后的资源文件，我们需要在本地创建一个`develop`分支工作，这个分支名字可以随便起。  
 
 在`package.json`文件中添加以下脚本
 ```
