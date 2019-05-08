@@ -17,6 +17,7 @@ npm install workbox-webpack-plugin --save-dev
 ```
 yarn add workbox-webpack-plugin --dev
 ```
+
 ## 自定义service worker
 自定义资源缓存策略、执行逻辑，更加灵活方便。新建文件`src/service-worker.js`，添加如下代码：
 ```javascript
