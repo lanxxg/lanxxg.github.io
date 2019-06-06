@@ -1,7 +1,7 @@
 ---
 title: 在dva中添加Service Worker
 date: "2019-05-08"
-description: support service-worker with workbox in dva.
+description: Support service-worker with workbox in dva.
 ---
 
 在使用[dva@2.x](https://github.com/dvajs/dva)处理数据流，以及[roadhog@2.x](https://github.com/sorrycc/roadhog)简化webpack配置的开发体系中，实现ServiceWorker离线缓存。  
