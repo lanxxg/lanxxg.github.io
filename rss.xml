@@ -1,4 +1,98 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[彼岸花开开彼岸]]></title><description><![CDATA[Personal blog by lanxxg.]]></description><link>https://lanxxg.github.io</link><generator>RSS for Node</generator><lastBuildDate>Mon, 10 Jun 2019 02:29:51 GMT</lastBuildDate><item><title><![CDATA[前端与服务端权限交互设计]]></title><description><![CDATA[在后台管理系统中，经常涉及到权限管理。  本文基于React举例关于权限一般来讲，权限控制可以分为两部分，API权限控制和UI权限控制。API权限顾名思义就是接口访问的权限，UI权限又可以细分为页面权限和功能权限。  API…]]></description><link>https://lanxxg.github.io/authority-management/</link><guid isPermaLink="false">https://lanxxg.github.io/authority-management/</guid><pubDate>Thu, 06 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在后台管理系统中，经常涉及到权限管理。  &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[彼岸花开开彼岸]]></title><description><![CDATA[Personal blog by lanxxg.]]></description><link>https://lanxxg.github.io</link><generator>RSS for Node</generator><lastBuildDate>Wed, 04 Sep 2019 05:20:34 GMT</lastBuildDate><item><title><![CDATA[代码风格指南]]></title><description><![CDATA[Eslint确保语法规则和代码风格保持良好的形态，Prettier则以特定的代码格式自动格式化代码。 如上所述，Prettier关注代码格式化，Eslint会检测语法规则和代码规范。当你设置了Prettier…]]></description><link>https://lanxxg.github.io/how-to-setup-eslint-prettier-editorconfig/</link><guid isPermaLink="false">https://lanxxg.github.io/how-to-setup-eslint-prettier-editorconfig/</guid><pubDate>Tue, 03 Sep 2019 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;Eslint确保语法规则和代码风格保持良好的形态，Prettier则以特定的代码格式自动格式化代码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如上所述，Prettier关注代码格式化，Eslint会检测语法规则和代码规范。当你设置了Prettier，你可以设置在保存文件的时候格式化，这样就不用再担心代码格式问题了。不过，Prettier比较‘自以为是’，只提供了很少一部分配置项让用户自定义。当然，个人认为，Prettier大部分规则都是友好的。Eslint，并不会自动格式化代码,而是提供一些警告，修复警告。比如，定义了一个变量，但是没有使用该变量，Eslint会警告已声明变量却从未读取。与Prettier相比，Eslint具有高度可配置性，因为它没有预先配置的规则，当你安装了Eslint，就可以配置规则或者使用共享的规则。通常，Prettier会结合Eslint使用。&lt;/p&gt;
+&lt;h2&gt;ESLint&lt;/h2&gt;
+&lt;p&gt;为了方便、快捷使用Eslint以及统一Eslint规则，请使用&lt;code class=&quot;language-text&quot;&gt;eslint-config-7xn&lt;/code&gt;共享配置。首先，使用如下命令安装&lt;code class=&quot;language-text&quot;&gt;eslint-config-7xn&lt;/code&gt;,&lt;code class=&quot;language-text&quot;&gt;ESLint&lt;/code&gt;等相关依赖：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save-dev eslint-config-7xn eslint-plugin-compat@3.x eslint-config-prettier@6.x @typescript-eslint/eslint-plugin@1.x @typescript-eslint/parser@1.x babel-eslint@10.x eslint@6.x eslint-plugin-flowtype@3.x eslint-plugin-import@2.x eslint-plugin-jsx-a11y@6.x eslint-plugin-react@7.x eslint-plugin-react-hooks@1.x&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然后在项目根目录新建&lt;code class=&quot;language-text&quot;&gt;.eslintrc&lt;/code&gt;文件，内容如下：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
+  &amp;quot;extends&amp;quot;: &amp;quot;7xn&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在&lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;添加执行脚本&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;scripts&amp;quot;: {
+  &amp;quot;lint&amp;quot;: &amp;quot;eslint .&amp;quot;,
+  &amp;quot;lint:fix&amp;quot;: &amp;quot;eslint . --fix&amp;quot;
+},&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;运行&lt;code class=&quot;language-text&quot;&gt;npm run lint&lt;/code&gt;检查代码或者&lt;code class=&quot;language-text&quot;&gt;npm run lint:fix&lt;/code&gt;修复Eslint错误。  &lt;/p&gt;
+&lt;p&gt;当然，或许你也希望你的编辑器可以检测eslint错误并修复，以VS Code为例。&lt;br&gt;
+安装扩展&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint&quot;&gt;VS Code ESLint extension&lt;/a&gt;，当你安装了扩展之后，默认会开启Eslint检测，如果需要保存时自动修复，在文
+件-&gt;首选项-&gt;设置-&gt;用户 JSON 文件里添加如下配置：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight has-highlighted-lines&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;eslint.autoFixOnSave&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;如果和Prettier在VS Code中一起使用，可能会和prettier冲突，不建议开启保存自动修复。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Prettier&lt;/h2&gt;
+&lt;p&gt;首先，安装prettier依赖：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install prettier --save-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然后在项目根目录新建文件&lt;code class=&quot;language-text&quot;&gt;.prettierrc&lt;/code&gt;文件，添加如下内容：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
+  &amp;quot;singleQuote&amp;quot;: true,
+  &amp;quot;trailingComma&amp;quot;: &amp;quot;es5&amp;quot;,
+  &amp;quot;printWidth&amp;quot;: 100,
+  &amp;quot;overrides&amp;quot;: [
+    {
+      &amp;quot;files&amp;quot;: &amp;quot;.prettierrc&amp;quot;,
+      &amp;quot;options&amp;quot;: { &amp;quot;parser&amp;quot;: &amp;quot;json&amp;quot; }
+    }
+  ]
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;与Eslint结合使用的话，理论上需要使用&lt;code class=&quot;language-text&quot;&gt;eslint-config-prettier&lt;/code&gt;把冲突的规则关掉，由于&lt;code class=&quot;language-text&quot;&gt;eslint-config-7xn&lt;/code&gt;已经使用&lt;code class=&quot;language-text&quot;&gt;eslint-config-prettier&lt;/code&gt;把可能冲突的规则关掉，所以不需要在项目根目录的&lt;code class=&quot;language-text&quot;&gt;.eslintrc&lt;/code&gt;文件添加相关配置。 &lt;/p&gt;
+&lt;p&gt;在&lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;添加执行脚本&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;scripts&amp;quot;: {
+  &amp;quot;prettier&amp;quot;: &amp;quot;prettier --write .&amp;quot;,
+},&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;运行&lt;code class=&quot;language-text&quot;&gt;npm run prettier&lt;/code&gt;格式化代码。  &lt;/p&gt;
+&lt;p&gt;那么在VS Code中如何使用呢？安装扩展&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode&quot;&gt;Prettier formatter for Visual Studio Code&lt;/a&gt;，当你安装了扩展之后，
+在文件-&gt;首选项-&gt;设置-&gt;用户 JSON 文件里添加如下配置：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight has-highlighted-lines&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;editor.formatOnSave&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;个人建议把ESlint、Prettier在VS Code的配置放到工作区或者单独的项目中，避免影响不需要Eslint、Prettier的项目。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;自动化&lt;/h2&gt;
+&lt;p&gt;为确保代码在提交到仓库之前没有ESlint错误，并且格式化了，你可能需要这样做。安装&lt;code class=&quot;language-text&quot;&gt;husky&lt;/code&gt;、&lt;code class=&quot;language-text&quot;&gt;lint-staged&lt;/code&gt;依赖：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install husky lint-staged --save-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在package.json添加脚本代码示例：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;scripts&amp;quot;: {
+  &amp;quot;lint&amp;quot;: &amp;quot;eslint --ext .js src&amp;quot;,
+  &amp;quot;lint:fix&amp;quot;: &amp;quot;eslint --fix --ext .js src&amp;quot;,
+  &amp;quot;lint-staged&amp;quot;: &amp;quot;lint-staged&amp;quot;,
+  &amp;quot;lint-staged:js&amp;quot;: &amp;quot;eslint --ext .js&amp;quot;,
+  &amp;quot;prettier&amp;quot;: &amp;quot;prettier --write ./src/**/*&amp;quot;
+},
+&amp;quot;lint-staged&amp;quot;: {
+  &amp;quot;**/*.{js,jsx,less}&amp;quot;: [
+    &amp;quot;prettier --write&amp;quot;,
+    &amp;quot;git add&amp;quot;
+  ],
+  &amp;quot;**/*.{js,jsx}&amp;quot;: &amp;quot;npm run lint-staged:js&amp;quot;
+},
+&amp;quot;husky&amp;quot;: {
+  &amp;quot;hooks&amp;quot;: {
+    &amp;quot;pre-commit&amp;quot;: &amp;quot;npm run lint-staged&amp;quot;
+  }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在提交代码的时候会触发钩子函数执行命令，把暂存区的代码格式化并检查ESlint错误。  &lt;/p&gt;
+&lt;h2&gt;Editorconfig&lt;/h2&gt;
+&lt;p&gt;在协作开发一个项目的时候，开发者使用的编辑器可能不一样（e.g. VS Code, WebStore），使用的操作系统可能也不一样（e.g. Windows, Mac）。比如有的编辑器默认缩进使用空格，有的使用Tab。Windows换行符是CRLF，Mac是LF。&lt;a href=&quot;http://editorconfig.org&quot;&gt;EditorConfig&lt;/a&gt;有助于为跨越各种编辑器和IDE的同一项目的多个开发人员维护一致的编码样式。&lt;/p&gt;
+&lt;p&gt;在项目根目录新建文件&lt;code class=&quot;language-text&quot;&gt;.editorconfig&lt;/code&gt;，添加如下内容：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# http://editorconfig.org
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;有些编辑器默认支持EditorConfig，有的则不支持，比如VS Code，需要自行安装插件。
+VS Code安装插件&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig&quot;&gt;EditorConfig for Visual Studio Code&lt;/a&gt;开启即可。&lt;/p&gt;
+&lt;p&gt;胡说八道~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[前端与服务端权限交互设计]]></title><description><![CDATA[在后台管理系统中，经常涉及到权限管理。   本文基于React举例 关于权限 一般来讲，权限控制可以分为两部分，API权限控制和UI权限控制。API权限顾名思义就是接口访问的权限，UI权限又可以细分为页面权限和功能权限。   API…]]></description><link>https://lanxxg.github.io/authority-management/</link><guid isPermaLink="false">https://lanxxg.github.io/authority-management/</guid><pubDate>Thu, 06 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在后台管理系统中，经常涉及到权限管理。  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本文基于React举例&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -54,9 +148,7 @@
 &lt;p&gt;在&lt;code class=&quot;language-text&quot;&gt;react-router&lt;/code&gt;v4版本中，路由也是组件，所以无论是页面权限还是功能权限都可以通过&lt;a href=&quot;https://reactjs.org/docs/conditional-rendering.html&quot;&gt;条件渲染&lt;/a&gt;来控制。&lt;/p&gt;
 &lt;h3&gt;页面权限控制实现有两种方式&lt;/h3&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;一种是全部菜单栏显示，当用户去访问没有权限的菜单页面时，显示403页面提示用户没有权限。  &lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;一种是全部菜单栏显示，当用户去访问没有权限的菜单页面时，显示403页面提示用户没有权限。  &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;另一种是只显示用户有权限的菜单，如果用户在浏览器地址栏手动输入没有权限的路由强行访问，则显示404页面。  &lt;/p&gt;
 &lt;ul&gt;
@@ -133,7 +225,7 @@
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;添加用户&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Button&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;胡说八道~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[在dva中添加Service Worker]]></title><description><![CDATA[在使用dva@2.x处理数据流，以及roadhog@2.x简化webpack配置的开发体系中，实现ServiceWorker离线缓存。  workbox在Webpack中的使用安装workbox-webpack-plugin使用npm使用yarn自定义service worker…]]></description><link>https://lanxxg.github.io/dva-with-service-worker/</link><guid isPermaLink="false">https://lanxxg.github.io/dva-with-service-worker/</guid><pubDate>Wed, 08 May 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在使用&lt;a href=&quot;https://github.com/dvajs/dva&quot;&gt;dva@2.x&lt;/a&gt;处理数据流，以及&lt;a href=&quot;https://github.com/sorrycc/roadhog&quot;&gt;roadhog@2.x&lt;/a&gt;简化webpack配置的开发体系中，实现ServiceWorker离线缓存。  &lt;/p&gt;
+&lt;p&gt;胡说八道~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[在dva中添加Service Worker]]></title><description><![CDATA[在使用dva@2.x处理数据流，以及roadhog@2.x简化webpack配置的开发体系中，实现ServiceWorker离线缓存。   workbox在Webpack中的使用 安装workbox-webpack-plugin 使用npm 使用yarn 自定义service…]]></description><link>https://lanxxg.github.io/dva-with-service-worker/</link><guid isPermaLink="false">https://lanxxg.github.io/dva-with-service-worker/</guid><pubDate>Wed, 08 May 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;在使用&lt;a href=&quot;https://github.com/dvajs/dva&quot;&gt;dva@2.x&lt;/a&gt;处理数据流，以及&lt;a href=&quot;https://github.com/sorrycc/roadhog&quot;&gt;roadhog@2.x&lt;/a&gt;简化webpack配置的开发体系中，实现ServiceWorker离线缓存。  &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://developers.google.com/web/tools/workbox/guides/get-started&quot;&gt;workbox&lt;/a&gt;在Webpack中的使用&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -305,7 +397,7 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 
 &lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;&lt;span class=&quot;token function&quot;&gt;registerServiceWorker&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;运行构建命令，查看dist目录&lt;/p&gt;
-&lt;p&gt;胡说八道~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[使用Gatsby搭建个人博客]]></title><description><![CDATA[Gatsby是基于React的框架，可以帮助我们构建超快的网站与应用。使用plugins可以很方便的实现很多功能，当然官方和社区也提供了很多预设置好的用例模板starters，快速的构建应用。用Gatsby blog starter模板开始你的博客安装Gatsby CLI…]]></description><link>https://lanxxg.github.io/create-a-personal-blog-with-gatsby/</link><guid isPermaLink="false">https://lanxxg.github.io/create-a-personal-blog-with-gatsby/</guid><pubDate>Thu, 11 Apr 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;Gatsby&lt;/a&gt;是基于React的框架，可以帮助我们构建超快的网站与应用。使用&lt;a href=&quot;https://www.gatsbyjs.org/docs/plugins&quot;&gt;plugins&lt;/a&gt;可以很方便的实现很多功能，当然官方和社区也提供了很多预设置好的用例模板&lt;a href=&quot;https://www.gatsbyjs.org/docs/starters/&quot;&gt;starters&lt;/a&gt;，快速的构建应用。&lt;/p&gt;
+&lt;p&gt;胡说八道~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[使用Gatsby搭建个人博客]]></title><description><![CDATA[Gatsby是基于React的框架，可以帮助我们构建超快的网站与应用。使用plugins可以很方便的实现很多功能，当然官方和社区也提供了很多预设置好的用例模板starters，快速的构建应用。 用Gatsby blog starter模板开始你的博客 安装Gatsby CLI…]]></description><link>https://lanxxg.github.io/create-a-personal-blog-with-gatsby/</link><guid isPermaLink="false">https://lanxxg.github.io/create-a-personal-blog-with-gatsby/</guid><pubDate>Thu, 11 Apr 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;Gatsby&lt;/a&gt;是基于React的框架，可以帮助我们构建超快的网站与应用。使用&lt;a href=&quot;https://www.gatsbyjs.org/docs/plugins&quot;&gt;plugins&lt;/a&gt;可以很方便的实现很多功能，当然官方和社区也提供了很多预设置好的用例模板&lt;a href=&quot;https://www.gatsbyjs.org/docs/starters/&quot;&gt;starters&lt;/a&gt;，快速的构建应用。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;用&lt;a href=&quot;https://github.com/gatsbyjs/gatsby-starter-blog&quot;&gt;Gatsby blog starter&lt;/a&gt;模板开始你的博客&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -353,5 +445,5 @@ module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
     }
   }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;然后运行&lt;code class=&quot;language-text&quot;&gt;npm run deploy&lt;/code&gt;，在浏览器打开&lt;code class=&quot;language-text&quot;&gt;http://username.github.io&lt;/code&gt;查看。&lt;/p&gt;
-&lt;p&gt;胡说八道~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[喜欢听着雨声入睡的夜晚，也喜欢听着雨声醒来的早晨，尤其是周末，这种感觉简直太微微微妙了呀。可是，长时间下雨又会让我感觉不安，甚至焦虑，可能在生活中表现不出来，但内心确实是这样的。还好，这两天总算天晴啦。  前些天使用Gatsby和其官方提供的模板Gatsby blog…]]></description><link>https://lanxxg.github.io/hello-world/</link><guid isPermaLink="false">https://lanxxg.github.io/hello-world/</guid><pubDate>Mon, 11 Mar 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;喜欢听着雨声入睡的夜晚，也喜欢听着雨声醒来的早晨，尤其是周末，这种感觉简直太微微微妙了呀。可是，长时间下雨又会让我感觉不安，甚至焦虑，可能在生活中表现不出来，但内心确实是这样的。还好，这两天总算天晴啦。  &lt;/p&gt;
+&lt;p&gt;胡说八道~&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Hello World]]></title><description><![CDATA[喜欢听着雨声入睡的夜晚，也喜欢听着雨声醒来的早晨，尤其是周末，这种感觉简直太微微微妙了呀。可是，长时间下雨又会让我感觉不安，甚至焦虑，可能在生活中表现不出来，但内心确实是这样的。还好，这两天总算天晴啦。   前些天使用Gatsby和其官方提供的模板Gatsby blog…]]></description><link>https://lanxxg.github.io/hello-world/</link><guid isPermaLink="false">https://lanxxg.github.io/hello-world/</guid><pubDate>Mon, 11 Mar 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;喜欢听着雨声入睡的夜晚，也喜欢听着雨声醒来的早晨，尤其是周末，这种感觉简直太微微微妙了呀。可是，长时间下雨又会让我感觉不安，甚至焦虑，可能在生活中表现不出来，但内心确实是这样的。还好，这两天总算天晴啦。  &lt;/p&gt;
 &lt;p&gt;前些天使用&lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;Gatsby&lt;/a&gt;和其官方提供的模板&lt;a href=&quot;https://github.com/gatsbyjs/gatsby-starter-blog&quot;&gt;Gatsby blog starter&lt;/a&gt;搭建了此网站。希望自己可以在这里写点什么，也许可以坚持很长一段时间，也许会不了了之，不过这一刻我的确想做这件事（手动认真脸）。  &lt;/p&gt;</content:encoded></item></channel></rss>
