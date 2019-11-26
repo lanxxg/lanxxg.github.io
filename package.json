@@ -47,6 +47,6 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "deploy": "gatsby build && gh-pages -d public -b master"
+    "deploy": "gatsby build && gh-pages -d public -b master -r https://$GH_TOKEN@github.com/lanxxg/lanxxg.github.io.git"
   }
 }
