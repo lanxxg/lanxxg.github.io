@@ -45,6 +45,7 @@
     "build": "rm -rf public && rm -rf .cache && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
+    "test": "echo \"Error: no test specified\" && exit 1"
     "start": "npm run develop",
     "serve": "gatsby serve",
     "deploy": "gatsby build && gh-pages -d public -b master -r https://$GH_TOKEN@github.com/lanxxg/lanxxg.github.io.git"
