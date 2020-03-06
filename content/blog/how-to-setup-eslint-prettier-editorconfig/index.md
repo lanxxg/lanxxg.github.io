@@ -80,6 +80,9 @@ npm install prettier --save-dev
 > 个人建议把ESlint、Prettier在VS Code的配置放到工作区或者单独的项目中，避免影响不需要Eslint、Prettier的项目。
 
 ## 自动化
+
+> 注意：Git版本需`>=2.13.0`，否则 husky 创建钩子会失效，详情查看[这里](https://github.com/typicode/husky#enoent-error-node_moduleshuskygithooks)
+
 为确保代码在提交到仓库之前没有ESlint错误，并且格式化了，你可能需要这样做。安装`husky`、`lint-staged`依赖：
 ```
 npm install husky lint-staged --save-dev
